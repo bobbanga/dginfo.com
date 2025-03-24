@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGinfo - Professional Dangerous Goods Information Platform</title>
+    <meta name="description" content="Comprehensive dangerous goods information platform providing classification, regulations, tools and resources for dangerous goods handling and transportation.">
+    <link rel="canonical" href="https://dginfo.org">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleLanguage() {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-gray-800">DGinfo</a>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleLanguage()" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors font-medium border border-blue-300">
+                    <span data-lang="en">中文</span>
+                    <span data-lang="zh" style="display: none;">English</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center" data-lang="en">Professional Dangerous Goods Information Platform</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center" data-lang="zh" style="display: none;">专业危险品信息平台</h1>
+            
+            <!-- Advanced Search Bar -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden p-4">
+                    <div class="flex flex-col sm:flex-row gap-2 mb-3">
+                        <select class="px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500 w-full sm:w-32" id="search-field">
+                            <option value="all">
+                                <span data-lang="en">All Fields</span>
+                                <span data-lang="zh" style="display: none">所有字段</span>
+                            </option>
+                            <option value="un">UN No.</option>
+                            <option value="cas">CAS No.</option>
+                            <option value="name">
+                                <span data-lang="en">Name</span>
+                                <span data-lang="zh" style="display: none">品名</span>
+                            </option>
+                        </select>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Update select options text based on language
+                                function updateSelectOptions() {
+                                    const isEnglish = document.querySelector('[data-lang="en"]').style.display !== 'none';
+                                    const selectField = document.getElementById('search-field');
+                                    
+                                    // Update All Fields/所有字段 option
+                                    selectField.options[0].text = isEnglish ? 'All Fields' : '所有字段';
+                                    
+                                    // Update Name/品名 option
+                                    selectField.options[3].text = isEnglish ? 'Name' : '品名';
+                                }
+                                
+                                // Initial setup
+                                updateSelectOptions();
+                                
+                                // Update when language changes
+                                document.querySelector('button[onclick="toggleLanguage()"]').addEventListener('click', function() {
+                                    setTimeout(updateSelectOptions, 10); // Small delay to ensure display states have updated
+                                });
+                            });
+                        </script>
+                        <input type="text" class="flex-1 px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500" placeholder="Search dangerous goods information..." id="search-input">
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const searchInput = document.getElementById('search-input');
+                                const originalPlaceholder = searchInput.placeholder;
+                                
+                                function updatePlaceholder() {
+                                    const isEnglish = document.querySelector('[data-lang="en"]').style.display !== 'none';
+                                    searchInput.placeholder = isEnglish ? 'Search dangerous goods information...' : '搜索危险品信息...';
+                                }
+                                
+                                // Initial setup
+                                updatePlaceholder();
+                                
+                                // Update when language changes
+                                document.querySelector('button[onclick="toggleLanguage()"]').addEventListener('click', function() {
+                                    setTimeout(updatePlaceholder, 10); // Small delay to ensure display states have updated
+                                });
+                            });
+                        </script>
+                        <button class="bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition-colors w-full sm:w-auto">
+                            <span data-lang="en">Search</span>
+                            <span data-lang="zh" style="display: none;">搜索</span>
+                        </button>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <span data-lang="en">Popular: UN1203, Lithium batteries, Sulfuric acid</span>
+                        <span data-lang="zh" style="display: none;">热门搜索：UN1203、锂电池、硫酸</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Navigation -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Quick Access Tools -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <span data-lang="en">Quick Tools</span>
+                <span data-lang="zh" style="display: none;">快捷工具</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow p-4 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                        <span data-lang="en">Declaration Validator</span>
+                        <span data-lang="zh" style="display: none;">申报文件校验</span>
+                    </h3>
+                    <p class="text-sm text-gray-600 flex-grow">
+                        <span data-lang="en">Instant check for declaration completeness</span>
+                        <span data-lang="zh" style="display: none;">快速检查申报要素完整性</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                        <span data-lang="en">Port Status</span>
+                        <span data-lang="zh" style="display: none;">港口动态</span>
+                    </h3>
+                    <p class="text-sm text-gray-600 flex-grow">
+                        <span data-lang="en">Real-time shipping routes and port updates</span>
+                        <span data-lang="zh" style="display: none;">实时航线和港口信息</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                        <span data-lang="en">Case Analysis</span>
+                        <span data-lang="zh" style="display: none;">案例分析</span>
+                    </h3>
+                    <p class="text-sm text-gray-600 flex-grow">
+                        <span data-lang="en">Transport incident cases and solutions</span>
+                        <span data-lang="zh" style="display: none;">运输事故案例与解决方案</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Features -->
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">
+            <span data-lang="en">Core Services</span>
+            <span data-lang="zh" style="display: none;">核心服务</span>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dangerous Goods Classification -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                    <span data-lang="en">Dangerous Goods Classification</span>
+                    <span data-lang="zh" style="display: none;">危险品分类</span>
+                </h2>
+                <p class="text-gray-600 mb-4 flex-grow">
+                    <span data-lang="en">Browse through 9 major categories of dangerous goods</span>
+                    <span data-lang="zh" style="display: none;">浏览9大类危险品信息</span>
+                </p>
+                <a href="/classification" class="text-blue-600 hover:text-blue-800 mt-auto px-4 py-2 border border-blue-300 rounded-md inline-block transition-all hover:bg-blue-50">
+                    <span data-lang="en">View Details →</span>
+                    <span data-lang="zh" style="display: none;">查看详情 →</span>
+                </a>
+            </div>
+
+            <!-- Regulations Library -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                    <span data-lang="en">Regulations Library</span>
+                    <span data-lang="zh" style="display: none;">法规库</span>
+                </h2>
+                <p class="text-gray-600 mb-4 flex-grow">
+                    <span data-lang="en">IMDG, ADR and other regulatory documents</span>
+                    <span data-lang="zh" style="display: none;">IMDG、ADR等法规文件</span>
+                </p>
+                <a href="/regulations" class="text-blue-600 hover:text-blue-800 mt-auto px-4 py-2 border border-blue-300 rounded-md inline-block transition-all hover:bg-blue-50">
+                    <span data-lang="en">View Details →</span>
+                    <span data-lang="zh" style="display: none;">查看详情 →</span>
+                </a>
+            </div>
+
+            <!-- External Tools -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                    <span data-lang="en">External Tools</span>
+                    <span data-lang="zh" style="display: none;">工具外链</span>
+                </h2>
+                <p class="text-gray-600 mb-4 flex-grow">
+                    <span data-lang="en">Maritime Administration and NOAA databases</span>
+                    <span data-lang="zh" style="display: none;">海事局/NOAA数据库</span>
+                </p>
+                <a href="/tools" class="text-blue-600 hover:text-blue-800 mt-auto px-4 py-2 border border-blue-300 rounded-md inline-block transition-all hover:bg-blue-50">
+                    <span data-lang="en">View Details →</span>
+                    <span data-lang="zh" style="display: none;">查看详情 →</span>
+                </a>
+            </div>
+
+            <!-- Resources -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                    <span data-lang="en">Resources</span>
+                    <span data-lang="zh" style="display: none;">资源下载</span>
+                </h2>
+                <p class="text-gray-600 mb-4 flex-grow">
+                    <span data-lang="en">Declaration templates and emergency guides</span>
+                    <span data-lang="zh" style="display: none;">申报模板和应急指南</span>
+                </p>
+                <a href="/resources" class="text-blue-600 hover:text-blue-800 mt-auto px-4 py-2 border border-blue-300 rounded-md inline-block transition-all hover:bg-blue-50">
+                    <span data-lang="en">View Details →</span>
+                    <span data-lang="zh" style="display: none;">查看详情 →</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">DGinfo</h3>
+                    <p class="text-gray-400">
+                        <span data-lang="en">Professional dangerous goods information platform</span>
+                        <span data-lang="zh" style="display: none;">专业危险品信息平台</span>
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span data-lang="en">Quick Links</span>
+                        <span data-lang="zh" style="display: none;">快速链接</span>
+                    </h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/about" class="hover:text-white transition-colors">
+                            <span data-lang="en">About Us</span>
+                            <span data-lang="zh" style="display: none;">关于我们</span>
+                        </a></li>
+                        <li><a href="/contact" class="hover:text-white transition-colors">
+                            <span data-lang="en">Contact</span>
+                            <span data-lang="zh" style="display: none;">联系我们</span>
+                        </a></li>
+                        <li><a href="/privacy" class="hover:text-white transition-colors">
+                            <span data-lang="en">Privacy Policy</span>
+                            <span data-lang="zh" style="display: none;">隐私政策</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span data-lang="en">Contact Us</span>
+                        <span data-lang="zh" style="display: none;">联系我们</span>
+                    </h3>
+                    <p class="text-gray-400 mb-2">info@dginfo.org</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 DGinfo.org. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
