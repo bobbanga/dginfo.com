@@ -1,0 +1,15 @@
+{
+    "site": {
+        "title": "DG Info Navigator"
+    },
+    "search": {
+        "placeholder": "Search resources...",
+        "button": "Search"
+    },
+    "categories": {
+        "regulations": "Regulations & Standards",
+        "tools": "Professional Tools",
+        "data": "Data Platforms",
+        "services": "Industry Services"
+    }
+} 

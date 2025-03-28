@@ -1,0 +1,15 @@
+{
+    "site": {
+        "title": "危险品信息导航"
+    },
+    "search": {
+        "placeholder": "搜索资源...",
+        "button": "搜索"
+    },
+    "categories": {
+        "regulations": "法规标准",
+        "tools": "专业工具",
+        "data": "数据平台",
+        "services": "行业服务"
+    }
+} 
